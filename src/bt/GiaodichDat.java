@@ -42,11 +42,15 @@ public class GiaodichDat extends Giaodich{
     public void nhapGdDat() {
         super.nhapGd();          
         while(true) {
-            loaiDat = sc.nextLine();
-            if (loaiDat.equals("A") || loaiDat.equals("B") || loaiDat.equals("C")) {
-                break;
-            } else {
-                System.out.println("Nhap loai dat A hoac B hoac C: ");
+            try {
+                loaiDat = sc.nextLine();
+                if (loaiDat.equals("A") || loaiDat.equals("B") || loaiDat.equals("C")) {
+                    break;
+                } else {                
+                    throw new Exception("Nhap loai dat A hoac B hoac C: ");
+                }
+            } catch(Exception e) {
+                System.out.println("Nhap loai dat A hoac B hoac C");
             }
         }
         System.out.println("Nhap dien tich: ");

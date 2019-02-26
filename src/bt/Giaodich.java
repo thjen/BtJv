@@ -51,15 +51,18 @@ public class Giaodich {
     }
     
     public void nhapGd() {
-        System.out.println("Nhap ma giao dich: ");
+        System.out.println("Nhap ma giao dich: "); 
         while(true) {
-            magd = sc.nextLine();
-            if (!magd.equals("")) {
+            try {
+                magd = sc.nextLine();
+                if (magd.equals("")) {
+                    throw new Exception("ma gd rong");
+                }
                 break;
-            } else {
-                System.out.println("Ma giao dich khong duoc de trong, nhap lai!");
+            } catch (Exception e) {
+                System.out.println("Exception: " + e.toString() + " nhap lai: ");
             }
-        }     
+        }
         System.out.println("Nhap ngay giao dich: ");
         ngaygd = sc.nextLine();
         System.out.println("Nhap don gia: ");
